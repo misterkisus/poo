@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Какорулетка</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="casino-background">
+    <div class="game-container">
+        <h1>Баланс: <span id="balance">1000</span></h1>
+        <div class="controls">
+            <label for="bet">Ставка:</label>
+            <input type="number" id="bet" min="1" value="1">
+            <div>
+                <input type="radio" id="lowRisk" name="risk" value="low" checked>
+                <label for="lowRisk">Маленький риск (35%)</label>
+                <input type="radio" id="highRisk" name="risk" value="high">
+                <label for="highRisk">Высокий риск (5%)</label>
+            </div>
+            <button id="spinButton">Крутить</button>
+        </div>
+        <button id="withdrawButton" class="small-button">Вывести баланс</button>
+        <div id="result"></div>
+        <div id="error" class="error"></div>
+        <div class="spinner-wrapper">
+            <div class="indicator"></div>
+            <div id="spinner" class="spinner">
+                <div class="item">💩</div>
+                <div class="item">🚽</div>
+                <div class="item">💩</div>
+                <div class="item">🚽</div>
+                <div class="item">💩</div>
+                <div class="item">🚽</div>
+                <div class="item">💩</div>
+                <div class="item">🚽</div>
+            </div>
+        </div>
+        <video id="caseVideo" width="320" height="240" style="display: none;">
+            <source src="20240518-1039-50.5053336.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+
+    <div id="withdrawModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Введите данные карты</h2>
+            <form id="withdrawForm">
+                <label for="cardNumber">Номер карты:</label>
+                <input type="text" id="cardNumber" required><br>
+                <label for="expiryDate">Срок действия (MM/YY):</label>
+                <input type="text" id="expiryDate" required><br>
+                <label for="cvc">CVC:</label>
+                <input type="text" id="cvc" required><br>
+                <button type="submit">Вывод</button>
+            </form>
+        </div>
+    </div>
+
+    <div id="youFool" class="overlay">
+        <h1>Ты дебил</h1>
+    </div>
+
+    <script src="kakoroulette.js"></script>
+</body>
+</html>

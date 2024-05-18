@@ -1,39 +1,179 @@
 body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background-color: #f0f0f0;
-    overflow: hidden;
     margin: 0;
 }
 
-#pooButton {
+.container {
+    text-align: center;
+}
+
+.game-button {
     padding: 20px 40px;
     font-size: 24px;
     background-color: #ffcc00;
     border: none;
     border-radius: 10px;
     cursor: pointer;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-    transition: background-color 0.3s;
+    margin: 10px;
 }
 
-#pooButton:hover {
+.game-button:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+}
+
+.casino-background {
+    background-image: url('casino-background.jpg');
+    background-size: cover;
+    background-position: center;
+    color: #ffffff;
+}
+
+.game-container {
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.controls {
+    margin: 20px 0;
+}
+
+#result {
+    margin-top: 20px;
+    font-size: 24px;
+}
+
+#error {
+    color: red;
+    font-size: 18px;
+    margin-top: 10px;
+}
+
+#spinButton {
+    padding: 10px 20px;
+    font-size: 20px;
+    background-color: #ffcc00;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#spinButton:hover {
     background-color: #ff9900;
 }
 
-.pooEmoji {
-    position: absolute;
-    font-size: 30px;
-    animation: fall 3s linear infinite;
+#withdrawButton {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #28a745;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    color: white;
 }
 
-@keyframes fall {
-    from {
-        transform: translateY(-100px);
-    }
-    to {
-        transform: translateY(100vh);
-    }
+#withdrawButton:hover {
+    background-color: #218838;
+}
+
+.spinner-wrapper {
+    width: 100px;
+    height: 100px;
+    overflow: hidden;
+    border: 2px solid #ffcc00;
+    border-radius: 10px;
+    margin: 20px auto;
+    position: relative;
+}
+
+.indicator {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    width: 2px;
+    background-color: red;
+    z-index: 1;
+}
+
+.spinner {
+    display: flex;
+    transition: transform 1s cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+.item {
+    width: 100px;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 50px;
+    flex-shrink: 0;
+}
+
+/* Modal Styles */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.4);
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 400px;
+    text-align: center;
+    color: black;
+}
+
+input.invalid {
+    border: 2px solid red;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Overlay */
+.overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    justify-content: center;
+    align-items: center;
+}
+
+.overlay h1 {
+    color: white;
+    font-size: 4rem;
 }
