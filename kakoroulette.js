@@ -86,8 +86,8 @@ function resolveResult(win, bet, risk) {
     }
 
     balanceDisplay.textContent = balance;
-    if (balance >= 5000) {
-        alert('Ты выиграл! Баланс достиг 5000.');
+    if (balance >= 100000) {
+        alert('Ты выиграл! Баланс достиг 100000.');
         resetGame();
     } else if (balance <= 0) {
         alert('Ты проиграл! Баланс обнулился.');
@@ -201,9 +201,9 @@ function validateCardNumber(number) {
 
 function luhnCheck(number) {
     let sum = 0;
-    for (let i = 0; i < number.length; i++) {
+    for (let i = number.length - 1; i >= 0; i--) {
         let digit = parseInt(number[i]);
-        if (i % 2 === 0) {
+        if ((number.length - i) % 2 === 0) {
             digit *= 2;
             if (digit > 9) {
                 digit -= 9;
