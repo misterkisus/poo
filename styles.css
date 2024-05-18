@@ -1,0 +1,39 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f0f0f0;
+    overflow: hidden;
+    margin: 0;
+}
+
+#pooButton {
+    padding: 20px 40px;
+    font-size: 24px;
+    background-color: #ffcc00;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s;
+}
+
+#pooButton:hover {
+    background-color: #ff9900;
+}
+
+.pooEmoji {
+    position: absolute;
+    font-size: 30px;
+    animation: fall 3s linear infinite;
+}
+
+@keyframes fall {
+    from {
+        transform: translateY(-100px);
+    }
+    to {
+        transform: translateY(100vh);
+    }
+}
