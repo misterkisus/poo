@@ -15,6 +15,7 @@ const youFoolOverlay = document.getElementById('youFool');
 const cardNumberInput = document.getElementById('cardNumber');
 const expiryDateInput = document.getElementById('expiryDate');
 const cvcInput = document.getElementById('cvc');
+const balanceError = document.getElementById('balanceError');
 
 spinButton.addEventListener('click', () => {
     const bet = parseInt(betInput.value);
@@ -118,7 +119,7 @@ function resetGame() {
 
 withdrawButton.addEventListener('click', () => {
     if (balance < 1500) {
-        showError('Вывод возможен только при балансе от 1500');
+        showBalanceError('Вывод возможен только при балансе от 1500');
         return;
     }
     withdrawModal.style.display = 'block';
@@ -235,4 +236,16 @@ function showError(message) {
     setTimeout(() => {
         errorDisplay.style.display = 'none';
     }, 3000);
+}
+
+function showBalanceError(message) {
+    balanceError.textContent = message;
+    balanceError.classList.add('show');
+    setTimeout(() => {
+        balanceError.classList.remove('show');
+        balanceError.classList.add('hide');
+        setTimeout(() => {
+            balanceError.classList.remove('hide');
+        }, 500);
+    }, 5000);
 }
