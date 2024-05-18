@@ -77,7 +77,7 @@ function resolveResult(win, bet, risk) {
 
     if (win) {
         const multiplier = risk === 'low' ? 1.2 : 18;
-        const winnings = bet * multiplier;
+        const winnings = Math.ceil(bet * multiplier); // Округление в пользу пользователя
         balance += winnings;
         showResult(true, winnings);
     } else {
